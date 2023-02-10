@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html id="homeHTML">
+  <head>
+    <title>Ship Us Safe Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel = "stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-cyan.min.css">
+    <script defer src = "https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body onload="loadData()" id = "homeBody">
+    <div id="loading"></div>
+    <img id="iconHome" src="images/anchor-tattoos-png-7671.png">
+    <div>
+      <h1 id="titleHome">Ship Us Safe</h1>
+    </div>
+
+    <div align="center">
+      <button id="buttonHome1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='create_route1.html'">
+        Create New Route
+      </button><br>
+
+      <button id="buttonHome1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='availablePort.html'">
+        View Available Ports
+      </button>
+
+      <button id="buttonHome2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='addNewPort.html'">
+        Add A New Port
+      </button><br>
+
+      <button id="buttonHome1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='availableShips.html'">
+        View Available Ships
+      </button>
+
+      <button id="buttonHome2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='addNewShip.html'">
+        Add A New Ship
+      </button><br>
+    </div>
+
+    <div class = "page-content">
+      <div class = "mdl-grid">
+        <div id="confirmedRoutesTab">
+
+          <h3>Confirmed Routes: </h3>
+
+          <table id="" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp s-tag-table">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">ID</th>
+                <th class="mdl-data-table__cell--non-numeric">Status</th>
+                <th class="mdl-data-table__cell--non-numeric">Departure Port</th>
+                <th class="mdl-data-table__cell--non-numeric">Destination Port</th>
+                <th class="mdl-data-table__cell--non-numeric">Date</th>
+                <th class="mdl-data-table__cell--non-numeric">Options</th>
+              </tr>
+            </thead>
+            <tbody id="routeTableOutput"></tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <script src ="scripts/share.js"></script>
+    <script src="scripts/loadData.js"></script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+/* Shared css */
+#body{
+  background-image: url('images/Untitled1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 275px;
+  width: 100%;
+}
+
+.mdl-layout__drawer {
+  padding-top: 20px;
+  width: 350px;
+  left: -175px;
+}
+
+.mdl-layout__drawer.is-visible {
+  left: 0;
+}
+
+.material-icons{
+  margin-right: 10px;
+}
+
+.mdl-navigation__link{
+  font-size: 1.5em;
+}
+
+h3, h4{
+  font-family: 'Montserrat';
+  font-size: 6vh;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.mdl-layout-title, .mdl-textfield{
+  font-family: 'Montserrat';
+  font-size: 3.5vh;
+}
+
+.mdl-selectfield__select, .mdl-textfield__input{
+  font-family: 'Montserrat';
+  font-size: 2.5vh;
+  padding: 7px 17px;
+}
+
+.mdl-data-table{
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 1.65em;
+  margin-bottom: 15px;
+}
+
+#cancelButton{
+  height:auto;
+	padding: 9px 37.5px;
+	font-size: 2em;
+	border-radius: 5px;
+}
+
+#confirmButton{
+  float: right;
+	height: auto;
+	padding: 9px 37.5px;
+	font-size: 2em;
+	border-radius: 5px;
+}
+
+.mapboxgl-popup-content{
+  font-family: "Montserrat";
+  font-size: 2.3vh;
+  text-align: center;
+}
+
+/* Home page css */
+#homeHTML{
+  height: 100%;
+  background-image: linear-gradient(to bottom right, mediumblue, darkturquoise);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-bottom: 50px
+}
+
+#iconHome{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 150px;
+}
+
+#titleHome{
+  text-align: center;
+  font-family: 'Montserrat';
+  color: rgb(227,255,212);
+  font-size: 4.5em;
+  padding: auto;
+  text-shadow: 3px 2px navy;
+}
+
+#buttonHome1{
+  font-family: 'Montserrat';
+  font-size: 2em;
+  margin-bottom: 35px;
+  padding: 8px 30px;
+  height: auto;
+  border-radius: 8px;
+}
+
+#buttonHome2{
+  font-family: 'Montserrat';
+  font-size: 2em;
+  margin-bottom: 35px;
+  padding: 8px 30px;
+  height: auto;
+  border-radius: 8px;
+  margin-left: 10px;
+  background-color: rgb(255,90,138);
+}
+
+#confirmedRoutesTab{
+  background-color: lightgrey;
+  width: 92%;
+  border: 10px solid darkblue;
+  padding: 15px 45px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#routeTable{
+  width: auto;
+}
+
+/* create_route1 css */
+#subtitle{
+  font-family: 'Montserrat';
+  font-size: 2.75vh;
+  padding: 7px 17px;
+  height:auto;
+}
+
+#nextPage{
+	height:auto;
+	padding: 7.5px 37.5px;
+	font-size: 2.5em;
+	border-radius: 5px;
+  margin-top: 15px;
+}
+
+/* create_route2 css */
+#mapArea{
+  height: 475px;
+  width: 98%;
+  margin: auto;
+  border: 1px solid grey;
+}
+
+.distance-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 25px;
+  line-height: 18px;
+  display: block;
+  margin: 0;
+  padding: 15px 23px;
+  border-radius: 3px;
+}
+
+#routeDetailsTable{
+	width: 97.5%;
+	margin: auto;
+}
+
+#waypointTitle{
+  font-family: 'Montserrat';
+  font-size: 3vh;
+}
+
+#waypointsOutputTable{
+	width: 60%;
+  font-size: 3vh;
+}
+
+/* availablePort and availableShips css */
+#addNewPortButton, #addNewShipButton{
+  font-size: 1.5em;
+}
+
+#loading{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#homeBody{
+  display: block;
+}
+
+/* confirmedRouteView css */
+#popup{
+  width: 45%;
+  margin: auto;
+  padding-right: 50px;
+}
+
+.mdl-dialog__title{
+  float: left;
+}
+
+#closeDialog{
+  font-size: 2vh;
+  padding: 7px 25px;
+  height: auto;
+  float: right;
+}

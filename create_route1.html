@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <title>Ship Us Safe Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel = "stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src = "https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body id="body">
+    <div class = "mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+      <header class = "mdl-layout__header">
+        <div class = "mdl-layout__header-row">
+          <span class = "mdl-layout-title">Ship Us Safe App</span>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">App functions:</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" onclick="href='home_page.html'">
+						<i class="material-icons">home</i>Home</a>
+          <a class="mdl-navigation__link" onclick="href='create_route1.html'">
+						<i class="material-icons">near_me</i>Create a new route</a>
+          <a class="mdl-navigation__link" onclick="href='availablePort.html'">
+            <i class="material-icons">where_to_vote</i>View available ports</a>
+          <a class="mdl-navigation__link" onclick="href='availableShips.html'">
+						<i class="material-icons">directions_boat</i>View available ships</a>
+          <a class="mdl-navigation__link" onclick="href='addNewPort.html'">
+						<i class="material-icons">add_box</i>Add a new port</a>
+          <a class="mdl-navigation__link" onclick="href='addNewShip.html'">
+						<i class="material-icons">add_box</i>Add a new ship</a>
+        </nav>
+      </div>
+      <main class = "mdl-layout__content">
+
+        <div class = "page-content">
+          <div class = "mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <h3><b>Create New Route (page 1)</b></h3>
+
+              <div class = "mdl-layout-title"><b>Route ID: </b>
+	              <div class="mdl-textfield mdl-js-textfield">
+	                <input class="mdl-textfield__input" type="text" id="newRouteID">
+	              </div>
+	            </div>
+              <br><br>
+
+              <div class="mdl-layout-title"><b>Departure Port: </b><br><br>
+                <div id="subtitle" class="mdl-layout-title">Search by Country:
+                  <select class="mdl-selectfield__select" id="departPortCountry"></select>
+                  <button id="subtitle" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="getPortOptions1()">
+                    search
+                  </button>
+                </div>
+                <div id="subtitle" class = "mdl-layout-title">Select Port:
+                  <select class="mdl-selectfield__select" id="newDepartPort"></select>
+                </div>
+              </div>
+              <br><br>
+
+              <div class="mdl-layout-title"><b>Arrival Port: </b><br><br>
+                <div id="subtitle"  class="mdl-layout-title">Search by Country:
+                  <select class="mdl-selectfield__select" id="arrivalPortCountry"></select>
+                  <button id="subtitle" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="getPortOptions2()">
+                    search
+                  </button>
+                </div>
+                <div id="subtitle" class = "mdl-layout-title">Select Port:
+                  <select class="mdl-selectfield__select" id="newArrivalPort"></select>
+                </div>
+              </div>
+
+              <button id="nextPage" class = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='addNewPort.html'">
+                Add A New Port
+              </button>
+              <br><br><br>
+
+              <div class = "mdl-layout-title"><b>Date of Departure: </b>
+                <div class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  					<input class = "mdl-textfield__input" type = "date" id = "departureDate">
+  				</div>
+              </div>
+              <br><br>
+
+              <button id="nextPage" class = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="route1();window.location.href='create_route2.html'">
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script src = "scripts/share.js"></script>
+      <script src = "scripts/createRoute.js"></script>
+    </div>
+  </body>
+</html>

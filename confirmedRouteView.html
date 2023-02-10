@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <title>Ship Us Safe Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel = "stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src = "https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel="stylesheet" href="styles.css">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+  </head>
+
+	<body id="body" onload="loadRouteData()">
+	  <div class = "mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	    <header class = "mdl-layout__header">
+	      <div class = "mdl-layout__header-row">
+	        <span class = "mdl-layout-title">Ship Us Safe App</span>
+	      </div>
+	    </header>
+	    <div class="mdl-layout__drawer">
+	      <span class="mdl-layout-title">App functions:</span>
+	      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" onclick="href='home_page.html'">
+						<i class="material-icons">home</i>Home</a>
+          <a class="mdl-navigation__link" onclick="href='create_route1.html'">
+            <i class="material-icons">near_me</i>Create a new route</a>
+          <a class="mdl-navigation__link" onclick="href='availablePort.html'">
+            <i class="material-icons">where_to_vote</i>View available ports</a>
+          <a class="mdl-navigation__link" onclick="href='availableShips.html'">
+						<i class="material-icons">directions_boat</i>View available ships</a>
+          <a class="mdl-navigation__link" onclick="href='addNewPort.html'">
+						<i class="material-icons">add_box</i>Add a new port</a>
+          <a class="mdl-navigation__link" onclick="href='addNewShip.html'">
+						<i class="material-icons">add_box</i>Add a new ship</a>
+	      </nav>
+	    </div>
+	    <main class = "mdl-layout__content">
+
+	      <div class = "page-content">
+	        <div class="mdl-grid">
+	          <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+
+              <div id="mapArea" class='page-block'></div><br>
+
+              <!-- Waypoints -->
+              <div id="waypointTitle"><b>Waypoints: </b></div><br>
+							<table id="waypointsOutputTable" class="mdl-data-table mdl-js-data-table s-tag-table">
+								<thead>
+									<tr>
+										<th class='mdl-data-table__cell--non-numeric'>No.</th>
+										<th class='mdl-data-table__cell--non-numeric'>Coordinates [lng, lat]</th>
+										<th class='mdl-data-table__cell--non-numeric'>Weather</th>
+									</tr>
+								</thead>
+								<tbody id = "waypointOutput">
+								</tbody>
+							</table>
+							<br><br>
+
+              <span class="mdl-layout-title"><b>Route Details: <b></span><br>
+							<table  class="mdl-data-table mdl-js-data-table mdl-shadow--2dp s-tag-table">
+							  <tbody id="routeDetailsTable">
+									<tr>
+									 <td class="mdl-data-table__cell--non-numeric">Route ID: </td>
+									 <td id="routeID" class="mdl-data-table__cell--non-numeric"></td>
+								 </tr>
+                 <tr>
+                   <td class="mdl-data-table__cell--non-numeric">Depature Date: </td>
+                   <td id="departDate" class="mdl-data-table__cell--non-numeric"></td>
+                   <td><button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Postpone</button>
+                     <dialog id="popup" class="mdl-dialog">
+                       <span class="mdl-dialog__title">Postpone departure date to: </span><br><br>
+                       <div class="mdl-dialog__content">
+                         <input class="mdl-textfield__input" type="date" id="postponeDate"></input>
+                       </div><br>
+                       <div class="mdl-dialog__actions">
+                         <button id="closeDialog" onclick="postpone()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Confirm</button>
+                         <button id="closeDialog" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close">Back</button>
+                       </div>
+                     </dialog>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="mdl-data-table__cell--non-numeric">Arrival Date: </td>
+                   <td id="arriveDate" class="mdl-data-table__cell--non-numeric"></td>
+                 </tr>
+							    <tr>
+							      <td class="mdl-data-table__cell--non-numeric">Departure Port: </td>
+										<td id="departPort" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+									<tr>
+										<td class="mdl-data-table__cell--non-numeric">Departure Weather: </td>
+										<td id="departWeather" class="mdl-data-table__cell--non-numeric"></td>
+									</tr>
+							    <tr>
+							      <td class="mdl-data-table__cell--non-numeric">Destination Port: </td>
+										<td id="destiPort" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+									<tr>
+										<td class="mdl-data-table__cell--non-numeric">Arrival Weather: </td>
+										<td id="arrivalWeather" class="mdl-data-table__cell--non-numeric"></td>
+									</tr
+                  <tr>
+							      <td class="mdl-data-table__cell--non-numeric">Selected ship: </td>
+										<td id="selectedShip" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+									<tr>
+							      <td class="mdl-data-table__cell--non-numeric">Travel Distance (in km): </td>
+										<td id="travelDistance" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+									<tr>
+							      <td class="mdl-data-table__cell--non-numeric">Total Travel Time: </td>
+										<td id="travelTime" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+									<tr>
+							      <td class="mdl-data-table__cell--non-numeric">Travel cost ($): </td>
+										<td id="travelCost" class="mdl-data-table__cell--non-numeric"></td>
+							    </tr>
+							  </tbody>
+							</table>
+							<br>
+
+              <button id="cancelButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="window.location.href='Home_page.html'">
+								Home
+							</button>
+
+	          </div>
+	        </div>
+	      </div>
+	    </main>
+      <script src = "scripts/share.js"></script>
+	    <script src = "scripts/viewConfirmedRoute.js"></script>
+		</div>
+  </body>
+</html>
